@@ -1,0 +1,11 @@
+[package]
+name = "avr_test"
+version = "0.1.0"
+edition = '2021'
+
+[dependencies]
+avr-std-stub = { path = "avr-std-stub" }
+definitions = { path = "definitions" }
+
+[profile.release]
+lto = true

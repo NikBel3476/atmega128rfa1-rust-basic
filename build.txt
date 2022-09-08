@@ -1,0 +1,4 @@
+// build
+cargo build -Z build-std=core --target avr-atmega128rfa1.json --release
+// flush
+avrdude -p atmega128rfa1 -c usbasp -P usb -Uflash:w:target/avr-atmega128rfa1/release/blink.elf:e
