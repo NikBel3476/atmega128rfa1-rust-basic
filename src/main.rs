@@ -2,8 +2,6 @@
 #![no_main]
 
 extern crate avr_std_stub;
-extern crate definitions;
-extern crate avr_delay;
 
 use definitions::atmega128rfa1::{DDRE, PORTE};
 use core::ptr::{read_volatile, write_volatile};
@@ -20,6 +18,11 @@ pub extern fn main() {
         // Write the output pins.
         write_volatile(PORTE, 0b01001010);
 
-        delay_ms(500);
+        loop {
+            write_volatile(PORTE, 0b00000001);
+            delay_ms(1000);
+            write_volatile(PORTE, 0b00000000);
+            delay_ms(1000);
+        }
     }
 }
