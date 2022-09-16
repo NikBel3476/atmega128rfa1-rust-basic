@@ -11,5 +11,5 @@ rustup override set nightly
 export AVR_CPU_FREQUENCY_HZ=16000000
 
 ### Compile the crate to an ELF executable.
-cargo build -Z build-std=core --target avr-atmega128rfa1.json --release
+cargo build -Z build-std=core --target atmega128rfa1.json --release
 
