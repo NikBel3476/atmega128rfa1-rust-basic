@@ -16,7 +16,7 @@ pub extern fn main() {
         write_volatile(DDRE, read_volatile(DDRE) | 0b11111111);
 
         // Write the output pins.
-        write_volatile(PORTE, 0b01001010);
+        write_volatile(PORTE, 0b0);
 
         loop {
             write_volatile(PORTE, 0b00000001);

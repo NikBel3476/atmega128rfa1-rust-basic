@@ -9,19 +9,37 @@
 			],
 			"group": "build",
 			"label": "build",
-			"args": ["--target" ,"atmega128rfa1.json", "-Z", "build-std=core", "--release"]
+			"args": [
+				"--target",
+				"atmega128rfa1.json",
+				"-Z",
+				"build-std=core",
+				"--release"
+			]
 		},
 		{
-			"type":"shell",
+			"type": "shell",
 			"command": "avrdude",
 			"label": "flush",
-			"args": ["-patmega128rfa1", "-cusbasp", "-Pusb", "-Uflash:w:target/avr-atmega128rfa1/release/avr_test.elf:e"]
+			"args": [
+				"-patmega128rfa1",
+				"-cusbasp",
+				"-Pusb",
+				"-b115200",
+				"-Uflash:w:target/atmega128rfa1/release/avr_test.elf:e"
+			]
 		},
 		{
 			"type": "shell",
 			"label": "build and flush",
-			"dependsOn": ["build", "flush"],
-			"dependsOrder": "sequence"
+			"dependsOn": [
+				"build",
+				"flush"
+			],
+			"dependsOrder": "sequence",
+			"problemMatcher": [
+				"$rustc"
+			]
 		}
 	]
 }
