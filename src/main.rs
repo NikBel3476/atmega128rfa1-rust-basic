@@ -3,7 +3,7 @@
 
 extern crate avr_std_stub;
 
-use definitions::atmega128rfa1::{DDRE, PORTE};
+use avrd::atmega128rfa1::{DDRE, PORTE};
 use core::ptr::{read_volatile, write_volatile};
 use avr_delay::delay_ms;
 
